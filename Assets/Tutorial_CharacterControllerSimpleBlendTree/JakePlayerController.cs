@@ -15,13 +15,8 @@ public class JakePlayerController : MonoBehaviour {
 
 	Animator	anim;
 
-    public string ejeh = "Horizontal_1";
-
-    public KeyCode salto = KeyCode.Space;
-
-
-
-
+    
+    
 
     void Awake()
 	{
@@ -38,35 +33,49 @@ public class JakePlayerController : MonoBehaviour {
 
     void Update()
 	{
-        
 
+        if (Input.GetButton("C"))
+        {
+            Debug.Log("Golpe 1");
+        }
+        if (Input.GetButton("V"))
+        {
+            Debug.Log("Golpe 2");
+        }
+        if (Input.GetMouseButtonDown(0))
+        {
+            Debug.Log("Golpe 3");
+        }
+        if (Input.GetMouseButtonDown(1))
+        {
+            Debug.Log("Golpe 4");
+        }
 
-		// Recogemos data del input
-		//float giro = Input.GetAxis ("Horizontal");
-		float avance = Input.GetAxis (ejeh);
+        // Recogemos data del input
+        //float giro = Input.GetAxis ("Horizontal");
+        float avance = Input.GetAxis ("Horizontal");
         avance=(Mathf.Abs(avance));
 
         // Aplicamos data al movimiento del personaje (GameObject)
         //if (giro != 0)		transform.Rotate (0, giro * turnSpeed * Time.deltaTime, 0);
-        
-        if (avance != 0 /*&& isGrounded*/)	transform.Translate (0,0, avance * speed * Time.deltaTime);
+        if (avance != 0)	transform.Translate (0,0, avance * speed * Time.deltaTime);
 
 		// Pasa el valor para la animacion
 		anim.SetFloat ("speed", avance);
 
-        if (Input.GetKey(salto))
+        if (Input.GetKey(KeyCode.Space))
         {
             jump();
             
         }
     
         //Para repetir salto
-        Vector3 gerak = new Vector3(Input.GetAxis(ejeh), 0, 0);
+        Vector3 gerak = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         rg.AddForce(gerak * speed);
 
 
         //Para girar al pj
-        Vector3 facingrotation = Vector3.Normalize(new Vector3(Input.GetAxis(ejeh), 0f, 0f));
+        Vector3 facingrotation = Vector3.Normalize(new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical")));
         if(facingrotation != Vector3.zero)
         {
             transform.forward = facingrotation;
@@ -78,7 +87,7 @@ public class JakePlayerController : MonoBehaviour {
 
     void jump()
     {
-        if(isGrounded)
+        if(isGrounded == true)
         {
             Vector3 atas = new Vector3(0, 1, 0);
             rg.AddForce(atas * jumpSpeed);
