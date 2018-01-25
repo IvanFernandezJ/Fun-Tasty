@@ -1,0 +1,63 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class Respawn : MonoBehaviour {
+    [SerializeField] private Transform player;
+    [SerializeField] private Transform respawnpoint;
+    [SerializeField] private Transform respawnpoint2;
+    public Health healthScript;
+    public Health healthscript;
+
+
+    public Text time;
+
+    
+ 
+    IEnumerator OnTriggerEnter(Collider Player)
+    {
+        Debug.Log("hola");
+        healthScript.health = healthScript.health - 1;
+        yield return new WaitForSeconds(2);
+        time.text = "Reapareceras en " + "3";
+        yield return new WaitForSeconds(1);
+        time.text = "Reapareceras en " + "2";
+        yield return new WaitForSeconds(1);
+        time.text = "Reapareceras en " + "1";
+        yield return new WaitForSeconds(1);
+        time.text = "PELEA! ";
+
+        //time.text = "PELEA! " + time.ToString();
+
+        player.transform.position = respawnpoint.transform.position;
+        player.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+        yield return new WaitForSeconds(2);
+
+
+
+    }
+
+    IEnumerator OnTriggerEnte(Collider Player_2)
+    {
+        Debug.Log("hola2");
+        healthScript.health = healthScript.health - 1;
+        yield return new WaitForSeconds(2);
+        time.text = "Reapareceras en " + "3";
+        yield return new WaitForSeconds(1);
+        time.text = "Reapareceras en " + "2";
+        yield return new WaitForSeconds(1);
+        time.text = "Reapareceras en " + "1";
+        yield return new WaitForSeconds(1);
+        time.text = "PELEA! ";
+
+        //time.text = "PELEA! " + time.ToString();
+
+        Player_2.transform.position = respawnpoint2.transform.position;
+        Player_2.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+        yield return new WaitForSeconds(2);
+
+
+
+    }
+}
