@@ -49,7 +49,11 @@ public class Respawn : MonoBehaviour {
 
     }
 
+<<<<<<< HEAD
    /*IEnumerator OnTriggerEnte(Collider Player_2)
+=======
+    /*IEnumerator OnTriggerEnte(Collider Player_2)
+>>>>>>> 7ca4aae2e865686553dc28edb32c344092b90d11
     {
         Debug.Log("hola2");
         healthScript.health = healthScript.health - 1;
