@@ -8,7 +8,12 @@ public class Respawn : MonoBehaviour {
     [SerializeField] private Transform respawnpoint;
     [SerializeField] private Transform respawnpoint2;
     public Health healthScript;
-    public Health healthscript;
+
+
+
+
+    //public JakePlayerController Player;
+
 
 
     public Text time;
@@ -17,28 +22,34 @@ public class Respawn : MonoBehaviour {
  
     IEnumerator OnTriggerEnter(Collider Player)
     {
-        Debug.Log("hola");
-        healthScript.health = healthScript.health - 1;
-        yield return new WaitForSeconds(2);
-        time.text = "Reapareceras en " + "3";
-        yield return new WaitForSeconds(1);
-        time.text = "Reapareceras en " + "2";
-        yield return new WaitForSeconds(1);
-        time.text = "Reapareceras en " + "1";
-        yield return new WaitForSeconds(1);
-        time.text = "PELEA! ";
+        //Player.GetComponent<JakePlayerController>();
 
-        //time.text = "PELEA! " + time.ToString();
+        if (Player.GetComponent<JakePlayerController>() != null)
+        {
+            Debug.Log("hola");
+            healthScript.health = healthScript.health - 1;
+            yield return new WaitForSeconds(2);
+            time.text = "Reapareceras en " + "3";
+            yield return new WaitForSeconds(1);
+            time.text = "Reapareceras en " + "2";
+            yield return new WaitForSeconds(1);
+            time.text = "Reapareceras en " + "1";
+            yield return new WaitForSeconds(1);
+            time.text = "PELEA!";
+            //GameObject.Find(respawn).GetComponent <JakePlayerController>)
+            //time.text = "PELEA! " + time.ToString();
+            Player.GetComponent<JakePlayerController>().Respawn();
 
-        player.transform.position = respawnpoint.transform.position;
-        player.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
-        yield return new WaitForSeconds(2);
+        }
+
+
+
 
 
 
     }
 
-    IEnumerator OnTriggerEnte(Collider Player_2)
+   /*IEnumerator OnTriggerEnte(Collider Player_2)
     {
         Debug.Log("hola2");
         healthScript.health = healthScript.health - 1;
@@ -59,5 +70,5 @@ public class Respawn : MonoBehaviour {
 
 
 
-    }
+    }*/
 }
