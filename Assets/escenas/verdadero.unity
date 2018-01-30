@@ -88,7 +88,6 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaDirect: 0.5
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
-    m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -375,7 +374,6 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -540,7 +538,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 709201223}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -7471}
+  m_LocalPosition: {x: 751, y: 71, z: -7471}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 980962608}
@@ -591,10 +589,7 @@ MonoBehaviour:
   salto: 273
   attack_1: ','
   attack_2: .
-<<<<<<< HEAD
   respawnpoint: {fileID: 191219252}
-=======
->>>>>>> 7ca4aae2e865686553dc28edb32c344092b90d11
 --- !u!136 &766236160
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1042,13 +1037,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 980962603}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-<<<<<<< HEAD
   m_LocalPosition: {x: 0, y: 5.45, z: 81.08}
   m_LocalScale: {x: 0.009766785, y: 0.009766785, z: 0.009766785}
-=======
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
->>>>>>> 7ca4aae2e865686553dc28edb32c344092b90d11
   m_Children:
   - {fileID: 2111590190}
   - {fileID: 95771558}
@@ -1091,10 +1081,7 @@ MonoBehaviour:
   salto: 119
   attack_1: c
   attack_2: v
-<<<<<<< HEAD
   respawnpoint: {fileID: 2124928711}
-=======
->>>>>>> 7ca4aae2e865686553dc28edb32c344092b90d11
 --- !u!54 &990216881
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1459,7 +1446,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1395791252}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -7702}
+  m_LocalPosition: {x: 156, y: 194, z: -7702}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 980962608}
@@ -1699,19 +1686,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4120990379000098, guid: df629b4af41462c4dbc91f071a4204b7, type: 2}
       propertyPath: m_LocalPosition.x
-<<<<<<< HEAD
       value: -4.35
       objectReference: {fileID: 0}
     - target: {fileID: 4120990379000098, guid: df629b4af41462c4dbc91f071a4204b7, type: 2}
       propertyPath: m_LocalPosition.y
       value: 7.09
-=======
-      value: -3.26
-      objectReference: {fileID: 0}
-    - target: {fileID: 4120990379000098, guid: df629b4af41462c4dbc91f071a4204b7, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 8.24
->>>>>>> 7ca4aae2e865686553dc28edb32c344092b90d11
       objectReference: {fileID: 0}
     - target: {fileID: 4120990379000098, guid: df629b4af41462c4dbc91f071a4204b7, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1909,9 +1888,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
+  serializedVersion: 2
   m_Convex: 0
-  m_CookingOptions: 14
+  m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!33 &2111590193

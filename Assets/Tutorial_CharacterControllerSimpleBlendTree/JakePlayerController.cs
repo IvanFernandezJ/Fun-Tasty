@@ -21,10 +21,6 @@ public class JakePlayerController : MonoBehaviour {
 
     public string attack_1 = "c";
     public string attack_2 = "v";
-<<<<<<< HEAD
-=======
-
->>>>>>> 7ca4aae2e865686553dc28edb32c344092b90d11
 
     public GameObject respawnpoint;
     
@@ -39,14 +35,9 @@ public class JakePlayerController : MonoBehaviour {
     void Start()
     {
         rg = GetComponent<Rigidbody>();
-<<<<<<< HEAD
-=======
-
->>>>>>> 7ca4aae2e865686553dc28edb32c344092b90d11
 
 
     }
-
 
     void Update()
 	{
@@ -133,7 +124,6 @@ public class JakePlayerController : MonoBehaviour {
 
     }
 
-<<<<<<< HEAD
  
     public void Respawn()
     {
@@ -141,9 +131,4 @@ public class JakePlayerController : MonoBehaviour {
         rg.velocity = new Vector3(0, 0, 0);
         
     }
-=======
-
-
-
->>>>>>> 7ca4aae2e865686553dc28edb32c344092b90d11
 }

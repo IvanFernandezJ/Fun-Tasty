@@ -6,10 +6,7 @@ TagManager:
   tags:
   - Player_2
   - Player_1
-<<<<<<< HEAD
   - jake
-=======
->>>>>>> 7ca4aae2e865686553dc28edb32c344092b90d11
   layers:
   - Default
   - TransparentFX
