@@ -25,7 +25,7 @@ public class JakePlayerController : MonoBehaviour {
     public string attack_1 = "c";
     public string attack_2 = "v";
 
-    public GameObject respawnpoint;
+    public GameObject respawnpoint ;
     public bool DoubleJump;
     public float delayBeforeDoubleJump;
 
