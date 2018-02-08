@@ -26,8 +26,16 @@ public class Respawn : MonoBehaviour {
 
         if (Player.GetComponent<JakePlayerController>() != null)
         {
+            /*if (Player.GetComponent<Health>() != null)
+            {
+                void Consultar_Vida
+
+            }*/
             Debug.Log("hola");
-            healthScript.health = healthScript.health - 1;
+            Player.GetComponent<Health>().Resta_vida();
+
+            
+
             yield return new WaitForSeconds(2);
             time.text = "Reapareceras en " + "3";
             yield return new WaitForSeconds(1);
@@ -36,11 +44,13 @@ public class Respawn : MonoBehaviour {
             time.text = "Reapareceras en " + "1";
             yield return new WaitForSeconds(1);
             time.text = "PELEA!";
-            //GameObject.Find(respawn).GetComponent <JakePlayerController>)
-            //time.text = "PELEA! " + time.ToString();
-            Player.GetComponent<JakePlayerController>().Respawn();
+        
 
+            Player.GetComponent<JakePlayerController>().Respawn();
+         
         }
+
+
 
 
 

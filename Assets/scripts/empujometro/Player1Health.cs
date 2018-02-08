@@ -8,6 +8,7 @@ public class Player1Health : MonoBehaviour
     public float max_Health = 100f;     //Vida maxima del personaje
     public float cur_Health = 0f;       //Vida actual del personaje
     public GameObject healthBar;        //Añadir seleccion de objeto vida(bar) en el inspector
+    [SerializeField] private Transform player;
 
 
     // Use this for initialization
@@ -57,4 +58,21 @@ public class Player1Health : MonoBehaviour
         }
     }
 
+    /*public void Restoreknockback(Collider Player)
+    {   
+        if (Player.GetComponent<JakePlayerController>().Respawn())
+        {
+            cur_Health = max_Health;
+        }
+
+    }*/
+        
 }
+
+        
+
+
+
+
+            
+

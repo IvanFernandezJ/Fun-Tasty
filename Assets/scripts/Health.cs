@@ -8,29 +8,43 @@ public class Health : MonoBehaviour
 {
 
     public Text vida;
-    public int health = 12;
+    public int health;
 
+    public void Resta_vida ()
+    {
 
+        health = health - 1;
+    }
 
-    //public Text tiempo;
+    public void Consultar_Vida()
+    {
+        
+        if (health < 1)
+        {
+            vida.text = "Estas muerto";
+            //Hacer que el pj no reaparezca y mostrar el panel del ganador.
+        }
+
+    }
+    
+
     // Use this for initialization
     /*void Start () {
 		
 	}*/
 
-
-
-
     // Update is called once per frame
     void Update()
     {
+        
         vida.text = "Vidas: " + health.ToString();
 
 
-        if (health < 1)
+        /*if (health < 1)
         {
             vida.text = "Estas muerto";
-        }
+            //Hacer que el pj no reaparezca y mostrar el panel del ganador.
+        }*/
     }
 
     /*

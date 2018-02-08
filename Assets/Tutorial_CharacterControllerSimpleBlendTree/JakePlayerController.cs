@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class JakePlayerController : MonoBehaviour {
 
@@ -13,6 +14,8 @@ public class JakePlayerController : MonoBehaviour {
     public bool isGrounded = true;
 
 
+    private Player1Health Player1Health;
+
     Animator anim;
 
     public string ejeh = "Horizontal_1";
@@ -23,7 +26,12 @@ public class JakePlayerController : MonoBehaviour {
     public string attack_2 = "v";
 
     public GameObject respawnpoint;
-    
+    public bool DoubleJump;
+    public float delayBeforeDoubleJump;
+
+
+
+
 
 
 
@@ -39,8 +47,10 @@ public class JakePlayerController : MonoBehaviour {
 
     }
 
+ 
+
     void Update()
-	{
+    {
 
         if (Input.GetButton("C")) //Esto registra que se presiona un boton
         {
@@ -77,17 +87,24 @@ public class JakePlayerController : MonoBehaviour {
         float avance = Input.GetAxis(ejeh);
         avance = (Mathf.Abs(avance));
 
-        // Aplicamos data al movimiento del personaje (GameObject)
-        //if (giro != 0)		transform.Rotate (0, giro * turnSpeed * Time.deltaTime, 0);
 
         if (avance != 0 /*&& isGrounded*/) transform.Translate(0, 0, avance * speed * Time.deltaTime);
 
         // Pasa el valor para la animacion
         anim.SetFloat("speed", avance);
 
-        if (Input.GetKey(salto))
+        //single jump
+        if (Input.GetKey(salto)&& isGrounded)
         {
             jump();
+
+
+        }
+        //doublejump
+        if (Input.GetKey(salto) && DoubleJump)
+        {
+            jump();
+
 
         }
 
@@ -107,28 +124,55 @@ public class JakePlayerController : MonoBehaviour {
 
     }
 
+
     void jump()
     {
+        //single jump
         if (isGrounded)
         {
             Vector3 atas = new Vector3(0, 1, 0);
             rg.AddForce(atas * jumpSpeed);
             isGrounded = false;
+            //StartCoroutine("waittwoseconds");  
+            Invoke("EnableDobleJump", delayBeforeDoubleJump);
         }
-
+        //doublejump
+        if (DoubleJump)
+        {
+            Vector3 atas = new Vector3(0, 1, 0);
+            rg.AddForce(atas * jumpSpeed);
+            DoubleJump = false;
+        }
     }
+
+    void EnableDobleJump()
+    {
+        DoubleJump = true;
+    }
+
+    /*IEnumerator waittwoseconds()
+    {
+        yield return new WaitForSeconds(2);
+        
+    }*/
+
+
 
     void OnCollisionEnter(Collision collision)
     {
         isGrounded = true;
+        DoubleJump = false;
 
     }
 
- 
+
     public void Respawn()
     {
         this.transform.position = respawnpoint.transform.position;
         rg.velocity = new Vector3(0, 0, 0);
-        
+
     }
+
+
+
 }
