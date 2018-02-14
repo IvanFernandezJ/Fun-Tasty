@@ -17,36 +17,57 @@ public class Respawn : MonoBehaviour {
 
 
     public Text time;
+    public Text final;
 
-    
- 
+
+
     IEnumerator OnTriggerEnter(Collider Player)
     {
         //Player.GetComponent<JakePlayerController>();
 
-        if (Player.GetComponent<JakePlayerController>() != null)
+        if (Player.GetComponent<JakePlayerController>() != null )//&& healthScript.health > 1)
         {
             /*if (Player.GetComponent<Health>() != null)
             {
                 void Consultar_Vida
 
             }*/
-            Debug.Log("hola");
-            Player.GetComponent<Health>().Resta_vida();
+            Debug.Log(healthScript.health + "ifgetcomponent");
 
-            
+            if (healthScript.health >= 1)
+            {
+                Debug.Log(healthScript.health + "INICIO_IF");
 
-            yield return new WaitForSeconds(2);
-            time.text = "Reapareceras en " + "3";
-            yield return new WaitForSeconds(1);
-            time.text = "Reapareceras en " + "2";
-            yield return new WaitForSeconds(1);
-            time.text = "Reapareceras en " + "1";
-            yield return new WaitForSeconds(1);
-            time.text = "PELEA!";
-        
+                Player.GetComponent<Health>().Menos();
 
-            Player.GetComponent<JakePlayerController>().Respawn();
+                Player.GetComponent<Health>().Resta_vida();
+                
+
+
+
+                yield return new WaitForSeconds(2);
+                time.text = "Reapareceras en " + "3";
+                yield return new WaitForSeconds(1);
+                time.text = "Reapareceras en " + "2";
+                yield return new WaitForSeconds(1);
+                time.text = "Reapareceras en " + "1";
+                yield return new WaitForSeconds(1);
+                time.text = "PELEA!";
+
+
+                Player.GetComponent<JakePlayerController>().Respawn();
+                Debug.Log(healthScript.health + "FINAL_IF");
+
+                
+            }
+            /*else
+            {
+                final.text = "final";
+
+            }*/
+       }
+
+ 
          
         }
 
@@ -81,4 +102,4 @@ public class Respawn : MonoBehaviour {
 
 
     }*/
-}
+
